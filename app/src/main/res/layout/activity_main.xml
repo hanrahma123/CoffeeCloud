@@ -5,18 +5,18 @@
 
     >
     <Button
-        android:id ="@+id/top"
+        android:id ="@+id/signin"
         android:text="SignIn"
         android:textSize="30dp"
         android:textColor="@color/white"
         android:fontFamily="sans-serif-light"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_above="@id/bottom"
+        android:layout_above="@id/createAccount"
         android:background="@color/colorAccent"
         />
     <Button
-        android:id = "@+id/bottom"
+        android:id = "@+id/createAccount"
         android:text="Create Account"
         android:textSize="30dp"
         android:textColor="@color/white"
