@@ -16,7 +16,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".CreatedAcc"></activity>
+        <activity
+            android:name=".Home"
+            android:label="@string/title_activity_home"
+            android:theme="@style/NoActionBar"></activity>
+        <activity android:name=".CreatedAcc" />
         <activity android:name=".validate" />
 
         <service android:name="org.eclipse.paho.android.service.MqttService" />

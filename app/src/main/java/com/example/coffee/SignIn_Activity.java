@@ -85,63 +85,35 @@ public class SignIn_Activity extends AppCompatActivity {
 
         CognitoUserAttributes userAttributes = new CognitoUserAttributes();
 
-        userAttributes.addAttribute("email", "hanrahma@tcd.ie");
+        //userAttributes.addAttribute("email", "hanrahma@tcd.ie");
         //userPool.signUpInBackground(userId123, password123, userAttributes, null, signupCallback);
 
-
+        CognitoUser thisUser = userPool.getUser(userId123);
+        thisUser.getSessionInBackground(authenticationHandler);
 
 
     }
 
-    private SignUpHandler signupCallback = new SignUpHandler() {
 
-        @Override
-        public void onSuccess( CognitoUser cognitoUser, boolean userConfirmed, CognitoUserCodeDeliveryDetails cognitoUserCodeDeliveryDetails) {
-            // Sign-up was successful
-            user = cognitoUser;
-            Log.e("SUCCESSSSS", "SUCCCCEEEEEESSSSS" );
-            user.getSessionInBackground(authenticationHandler);
-            // Check if this user (cognitoUser) has to be confirmed
-            if(!userConfirmed) {
-
-                //startActivity(new Intent(CreateAccount.this, validate.class));
-
-
-                // This user has to be confirmed and a confirmation code was sent to the user
-                // cognitoUserCodeDeliveryDetails will indicate where the confirmation code was sent
-                // Get the confirmation code from user
-            }
-            else {
-                // The user has already been confirmed
-            }
-        }
-
-        @Override
-        public void onFailure(Exception exception) {
-            // Sign-up failed, check exception for the cause
-            String msg = exception.getMessage();
-
-            Log.e("FAILURE", msg );
-        }
-    };
     AuthenticationHandler authenticationHandler = new AuthenticationHandler() {
 
         @Override
         public void onSuccess(CognitoUserSession userSession, CognitoDevice newDevice) {
             Log.e("Success!!", "you signed in " );
+            startActivity(new Intent(SignIn_Activity.this, Home.class));
         }
 
         @Override
         public void getAuthenticationDetails(AuthenticationContinuation authenticationContinuation, String userId) {
-//            Log.e("Getting Auth", "getting auth details " );
+           Log.e("Getting Auth", "getting auth details " );
 //            // The API needs user sign-in credentials to continue
-//            AuthenticationDetails authenticationDetails = new AuthenticationDetails(userId123, password123, null);
+            AuthenticationDetails authenticationDetails = new AuthenticationDetails(userId, password123, null);
 //
 //            // Pass the user sign-in credentials to the continuation
-//            authenticationContinuation.setAuthenticationDetails(authenticationDetails);
+            authenticationContinuation.setAuthenticationDetails(authenticationDetails);
 //
 //            // Allow the sign-in to continue
-//            authenticationContinuation.continueTask();
+            authenticationContinuation.continueTask();
         }
 
         @Override
