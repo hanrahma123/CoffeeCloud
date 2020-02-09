@@ -1,0 +1,20 @@
+{
+    "android": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-coffeeapp-android-190452-authRole",
+            "UnauthRoleArn": "arn:aws:iam::010124223053:role/amplify-coffeeapp-android-190452-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::010124223053:role/amplify-coffeeapp-android-190452-authRole",
+            "Region": "eu-west-1",
+            "DeploymentBucketName": "amplify-coffeeapp-android-190452-deployment",
+            "UnauthRoleName": "amplify-coffeeapp-android-190452-unauthRole",
+            "StackName": "amplify-coffeeapp-android-190452",
+            "StackId": "arn:aws:cloudformation:eu-west-1:010124223053:stack/amplify-coffeeapp-android-190452/e3543f70-4aa5-11ea-8177-02e29081c656",
+            "AmplifyAppId": "d39ldel2nau6mk"
+        },
+        "categories": {
+            "auth": {
+                "coffeeappddb708fb": {}
+            }
+        }
+    }
+}
